@@ -3,15 +3,15 @@
 
 ## Summary
 
-This repository provides materials for a session that is part of the [I2DS Tools for Data Science workshop](https://github.com/intro-to-data-science-24-workshop) run at the [Hertie School, Berlin](https://www.hertie-school.org/en/) in October 2023. The student-run workshop is part of the course [Introduction to Data Science](https://github.com/intro-to-data-science-24) taught by Simon Munzert at the Hertie School, Berlin, in Fall 2024.
+This repository provides materials for a session that is part of the [I2DS Tools for Data Science workshop](https://github.com/intro-to-data-science-24-workshop) run at the [Hertie School, Berlin](https://www.hertie-school.org/en/) in October 2024. The student-run workshop is part of the course [Introduction to Data Science](https://github.com/intro-to-data-science-24) taught by Simon Munzert at the Hertie School, Berlin, in Fall 2024.
 
 ### Session contents
 
-This session will introduce you to the modern data wrangling workflow with R and dplyr. Data wrangling is one of the core steps in the data science workflow. dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges, including the manipulation of datasets and variables. 
+This session will introduce you to the janitor package in R. Specifically, this session will examine the packages usefuleness for data cleaning, data exploration, and working with 'tabyls'. 
 
 ### Main learning objectives
 
-The goals of this session are to (1) equip you with conceptual knowledge about the dplyr package and data wrangling workflow, (2) show you the three key verbs of the pacakge, and (3) provide you with practice material as well as some further readings.
+The goals of this session are to (1) equip you with conceptual knowledge about the janitor package and data cleaning workflow, (2) show you key functions of the pacakge for cleaning and exploration, and (3) provide you with practice material as well as some further readings.
 
 
 ## Tutorial
@@ -21,15 +21,18 @@ The session is accompanied by a tutorial, which can be accessed [here](https://r
 
 ## Instructors
 
-- Simon Munzert ([website](http://simonmunzert.github.io/), [twitter](https://twitter.com/simonsaysnothin))
-- Kermit the Frog ([website](https://en.wikipedia.org/wiki/Kermit_the_Frog), [twitter](https://twitter.com/KermitTheFrog))
+- Corbin Cerny: [LinkedIn](https://www.linkedin.com/in/corbincerny/)
+- Juan Quinones: [LinkedIn](https://www.linkedin.com/in/juan-quinones22/)
 
 
 ## Further resources
 
-- [dplyr overview at dplyr.tidyverse.org](https://dplyr.tidyverse.org/)
-- [Hands-on dplyr tutorial by Data School on YouTube](https://www.youtube.com/watch?v=jWjqLW-u3hc)
-- [R for Data Science book - part on data wrangling](https://r4ds.had.co.nz/wrangle-intro.html)
+- “Janitor Package - RDocumentation.” Accessed October 23, 2024. https://www.rdocumentation.org/packages/janitor/versions/2.2.0.
+Sant, Gus Van.
+- “Good Will Hunting - Apple TV (HU).” Apple TV, January 9, 1998. https://tv.apple.com/hu/movie/good-will-hunting/umc.cmc.ljmzio5szpnhca4ydns8f99q.
+- “Sfirke/Janitor: Simple Tools for Data Cleaning in R.” Accessed October 23, 2024. https://github.com/sfirke/janitor.
+- “Why Every Data Scientist Needs the Janitor Package.” Numbers around Us (blog), August 16, 2024. https://medium.com/number-around-us/why-every-data-scientist-needs-the-janitor-package-da37e4dcfe24.
+
 
 
 ## License
@@ -38,6 +41,6 @@ The material in this repository is made available under the [MIT license](http:/
 
 ## Statement of contributions
 
-**Simon Munzert** prepared the practice material and post-processed the recording.
+**Juan Quinones** prepared the practice material and the lab lesson plan.
 
-**Kermit the Frog** prepared the presentation slides and recording. He also provided an example to the practice material.
+**Corbin Cerny** prepared the presentation slides and recording.
