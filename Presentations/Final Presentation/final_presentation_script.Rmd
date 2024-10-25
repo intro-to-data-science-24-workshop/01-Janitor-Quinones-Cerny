@@ -73,7 +73,7 @@ library(here)
 
 <div style="text-align: center;">
   <img src ="images/teacher_roster_excel.png" width="70%" style="display: block; margin: 0 auto;" />
-  <p>Example of a roster of teachers from a fictional American high school; available [here](https://github.com/sfirke/janitor)</p>
+  <p>Example of a roster of teachers from a fictional American high school; available at https://github.com/sfirke/janitor </p>
 </div>
 
 ---
