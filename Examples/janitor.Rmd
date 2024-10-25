@@ -1,0 +1,90 @@
+---
+title: "Cleaning Data And Tabyls With janitor - Excercises"
+subtitle: "Intro to Data Science Workshop Series - Live Session"
+author: "Corbin Cerny & Juan Quinones"
+institute: "**Hertie School of Governance, Berlin**"
+date: "2024/10/28 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: hertie_logo.html
+    css: [default, metropolis, metropolis-fonts, style.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+      hash: true
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+
+library(tidyverse)
+library(modelsummary)
+library(kableExtra)
+library(janitor)
+library(readxl)
+library(here)
+```
+
+```{r, eval=FALSE}
+cleaner <- here('dirty_data.xlsx') |> 
+  read_excel(skip = 1, .name_repair = "minimal") |> 
+  clean_names()
+
+```
+
+```{r, eval=FALSE}
+even_cleaner <- here('dirty_data.xlsx') |> 
+  read_excel(skip = 1, .name_repair = "minimal") |> 
+  clean_names() |> 
+  remove_empty() |> 
+  remove_constant()
+
+```
+
+```{r, eval=FALSE}
+as_clean_as_it_gets <- here('dirty_data.xlsx') |> 
+  read_excel(skip = 1, .name_repair = "minimal") |> 
+  clean_names() |> 
+  remove_empty() |> 
+  remove_constant() |> 
+  mutate(hire_date = excel_numeric_to_date(hire_date))
+
+```
+
+```{r, eval=FALSE}
+starwars |> 
+  get_dupes(homeworld, species, eye_color, hair_color, sex)
+```
+
+
+```{r, eval=FALSE}
+starwars |> 
+  tabyl(homeworld) |> 
+  as_tibble() |> 
+  arrange(desc(n))
+```
+
+```{r, eval=FALSE}
+starwars |> 
+  tabyl(homeworld, species)
+```
+
+```{r, eval=FALSE}
+starwars |> 
+  tabyl(homeworld, species, sex)
+```
+
+```{r, eval=FALSE}
+starwars |> 
+  tabyl(species) |> 
+  adorn_totals() |> 
+  adorn_pct_formatting() |> 
+  knitr::kable()
+```
+
