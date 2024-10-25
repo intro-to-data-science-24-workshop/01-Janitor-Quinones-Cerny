@@ -1,0 +1,174 @@
+---
+title: "Analyzing Student's Sleep Patterns with Janitor and 'tabyls' 🚀"
+author: "Corbin Cerny, Juan Quinones"
+date: '10-28-2024'
+output: 
+ html_document:
+    toc: TRUE
+    df_print: paged
+    number_sections: FALSE
+    highlight: monochrome
+    theme: yeti
+    toc_depth: 3
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+##  Motivation 🎆
+In this demonstration, we will analyze sleep patterns among university students. Using the Janitor package, we’ll clean the data and conduct a quick analysis of variable relationships to gain deeper insights into our dataset. This demostration is divided in two parts:
+
+1. Data Cleaning
+2. Data Analysis
+
+### ️ Installing and Importings libraries 🛠️️
+
+```{r}
+#Uncomment to install required libraries.
+#install.packages("janitor") 
+#install.packages("readxl") 
+#install.packages("dplyr") 
+
+#Importing libraries
+library(janitor)
+library(readxl)
+library(dplyr)
+```
+
+## Let’s Dive in! 💃
+
+### 1. Data Cleaning
+
+Reading our Data Set:
+
+```{r}
+
+#In Github's repository we have uploaded the data set for this demonstration:
+data = read.csv("Data/student_sleep_patterns_mod.csv")
+head(data)
+
+```
+### clean_names() 🧹
+
+Cleaning Column Names using Janitor's "clean_names()" function :
+
+```{r}
+dataf1 = data %>%
+  clean_names()
+
+print(colnames(data))
+print(colnames(dataf1))
+```
+```{r}
+head(dataf1)
+```
+### remove_empty() 🔴
+Cleaning Null Rows using Janitor's "remove_empty()" function:
+
+```{r}
+#We count how many null values we have
+print(sum(rowSums(is.na(dataf1)) > 0))
+```
+
+```{r}
+dataf2 = remove_empty(dataf1)
+print(sum(rowSums(is.na(dataf2)) > 0))
+head(dataf2)
+```
+### adorn_rounding() 🤩
+
+Adorning Columns using Janitor's "adorn_rounding()" function:
+
+```{r}
+dataf3 = adorn_rounding(dataf2, digits = 0)
+head(dataf3)
+```
+### get_dupes() 👯‍
+Checking for Duplicate Rows using Janitor's "get_dupes()" function️ :
+
+```{r}
+duplicate_columns <- dataf3 %>%
+  get_dupes() 
+
+head(duplicate_columns)
+```
+
+```{r}
+#We eliminate the duplicated columns we have
+dataf4 <- dataf3 %>%
+  distinct()
+
+duplicate_columns <- dataf4 %>%
+  get_dupes()
+
+#We check for how many duplicated rows we have
+nrow(duplicate_columns)
+```
+
+### Now our data is clean 🧼:
+
+```{r}
+head(dataf4)
+```
+
+
+## We proceed with our second step 🙌:
+
+### 2. Data Anlysis using tabyls 🧐:
+
+Using Janitor's tabyl() function we can create frequency tables for one, two or three variables, making it easier to understand distributions.
+
+We can make our tables more interpretable by using Janitor’s "adorn_pct_formatting()" function:
+
+### One variable analysis 1️⃣
+
+How is the distribution of sleep hours of students?
+
+```{r}
+
+#First Row
+table1 = tabyl(dataf4$sleep_duration)
+table1 = table1 %>%
+  adorn_pct_formatting() 
+
+colnames(table1) <- c("hours_sleep", "count", "percentage")
+table1
+
+```
+
+### Two variable analysis 2️⃣
+
+Is there a difference between sleep time and gender in students?
+
+We can make our tables more interpretable by using Janitor’s "adorn_pct_formatting()" + "adorn_pct_formatting()" functions:
+
+```{r}
+#Second row
+table2 = tabyl(dataf4, sleep_duration, gender,   ,show_missing_levels = FALSE)
+
+table2 = table2 %>%
+  adorn_percentages("row") %>%   # Calculate percentages for each row
+  adorn_pct_formatting()          
+
+#View the percentages
+print(table2)
+```
+
+### Three variable analysis 3️⃣
+
+Is there a difference between sleep time and gender in students and year?
+```{r}
+#third row
+table3 = tabyl(dataf4, sleep_duration, university_year, gender, show_missing_levels = FALSE)
+
+table3 = table3 %>%
+  adorn_percentages("row") %>%
+  adorn_pct_formatting()
+
+table3
+
+```
+
