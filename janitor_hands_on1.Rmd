@@ -19,7 +19,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 ##  Motivation 🎆
-In this demonstration, we will analyze sleep patterns among university students. Using the Janitor package, we’ll clean the data and conduct a quick analysis of variable relationships to gain deeper insights into our dataset. This demostration is divided in two parts:
+In this demonstration, we will examine the sleep patterns of university students utilizing the Janitor package. We will first clean our dataset and then perform variable analyses to explore the relationships within the data, allowing us to gain deeper insights. This demonstration is structured into two parts:
 
 1. Data Cleaning
 2. Data Analysis
@@ -171,4 +171,6 @@ table3 = table3 %>%
 table3
 
 ```
+## Conclusion 🎆
 
+As we explored in this tutorial, Janitor is an excellent tool for data scientists to execute data cleaning and perform quick analyses of variable comparisons. We delved into the most common functions of Janitor; however, there are many more functions for you to discover. Please refer to the resources in the GitHub repository.  
